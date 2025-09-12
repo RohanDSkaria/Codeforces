@@ -4,14 +4,9 @@ using namespace std;
 
 void solve(){
     int n;cin>>n;
-    map<int,int> m;
-    for(int i=0,x; i<n; i++){
-        cin>>x;
-        m[x]++;
-    }
-    int a=0,b=0;
-    for(auto &[x,y]:m) y>1?a++:b++;
-    cout<<a+(b+1)/2<<'\n';
+    int k=n-1+(n&1);
+    for(int i=1; i<=k; i++) cout<<(i&1?-1:3)<<' ';
+    cout<<(n&1?"\n":"2\n");
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);

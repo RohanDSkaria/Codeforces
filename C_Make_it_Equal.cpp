@@ -3,15 +3,15 @@ using namespace std;
 #define int long long
 
 bool solve(){
-    int n;cin>>n;
-    vector<int> a(n);
-    for(int &i:a) cin>>i;
-    int mn=a[0];
-    for(int i:a){
-        if(i>=2*mn) return 0;
-        mn=min(mn,i);
+    int n,k;cin>>n>>k;
+    map<int,int> a,b;
+    for(int i=0,x; i<2*n; i++){
+        cin>>x;
+        x%=k;
+        if(i==n) swap(a,b);
+        a[min(x,k-x)]++;
     }
-    return 1;
+    return a==b;
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);

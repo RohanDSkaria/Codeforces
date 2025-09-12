@@ -6,19 +6,15 @@ void solve(){
     int n;cin>>n;
     vector<int> a(n);
     for(int &i:a) cin>>i;
-    int i=0,j=n-1,ya=0;
-    while(i<=j){
-        if(a[i]<a[j]){
-            cout<<(ya?'L':'R');
-            ya?i++:j--;
-        }
-        else{
-            cout<<(ya?'R':'L');
-            ya?j--:i++;
-        }
-        ya^=1;
+    vector<vector<int>> b(n+1);
+    for(int i=0; i<n; i++) b[a[i]].push_back(i);
+    vector<int> dp(n+1),cnt(n+1);
+    for(int i=1; i<=n; i++){
+        dp[i]=dp[i-1];
+        int t=a[i-1],k=++cnt[t];
+        if(k>=t) dp[i]=max(dp[i],dp[b[t][k-t]]+t);
     }
-    cout<<'\n';
+    cout<<dp[n]<<'\n';
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);

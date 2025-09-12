@@ -3,14 +3,16 @@ using namespace std;
 #define int long long
 
 void solve(){
-    int n,c;cin>>n>>c;
+    int n,k;cin>>n>>k;
+    string s;cin>>s;
     vector<int> a(n);
-    for(int &i:a) cin>>i;
-    sort(a.rbegin(),a.rend());
-    int k=1,ans=0;
-    for(int i:a){
-        if(i>c || i*k>c) ans++;
-        else k*=2;
+    a[0]=s[0]=='W';
+    for(int i=1; i<n; i++) a[i]=a[i-1]+(s[i]=='W');
+    int ans=n;
+    for(int i=0; i<=n-k; i++){
+        int cnt=a[i+k-1];
+        if(i) cnt-=a[i-1];
+        ans=min(ans,cnt);
     }
     cout<<ans<<'\n';
 }

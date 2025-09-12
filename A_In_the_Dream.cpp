@@ -3,15 +3,9 @@ using namespace std;
 #define int long long
 
 bool solve(){
-    int n;cin>>n;
-    vector<int> a(n);
-    for(int &i:a) cin>>i;
-    int mn=a[0];
-    for(int i:a){
-        if(i>=2*mn) return 0;
-        mn=min(mn,i);
-    }
-    return 1;
+    int a,b,c,d;cin>>a>>b>>c>>d;
+    c-=a;d-=b;
+    return (min(a,b)+1)*2>=max(a,b) && (min(c,d)+1)*2>=max(c,d);
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);

@@ -4,14 +4,10 @@ using namespace std;
 
 void solve(){
     int n;cin>>n;
-    map<int,int> m;
-    for(int i=0,x; i<n; i++){
-        cin>>x;
-        m[x]++;
-    }
-    int a=0,b=0;
-    for(auto &[x,y]:m) y>1?a++:b++;
-    cout<<a+(b+1)/2<<'\n';
+    vector<int> s(n),f(n);
+    for(int &i:s) cin>>i;
+    for(int &i:f) cin>>i;
+    for(int i=0; i<n; i++) cout<<f[i]-(i?max(f[i-1],s[i]):s[i])<<" \n"[i==n-1];
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);

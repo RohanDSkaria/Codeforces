@@ -2,17 +2,15 @@
 using namespace std;
 #define int long long
 
-void solve(){
-    int n;cin>>n;
-    vector<int> a(n);
-    for(int &i:a) cin>>i;
-    cout<<min(a[0]+a[1],a[0]*2)<<'\n';
+bool solve(){
+    int n,a,b;cin>>n>>a>>b;
+    return ((a&1)==(b&1) && a>=b || a<=b) && (n-max(a,b)&1)==0;
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);
     int t=1;
     cin>>t;
-    while(t--) solve();
+    while(t--) cout<<(solve()?"YES\n":"NO\n");
 }
 /*
 

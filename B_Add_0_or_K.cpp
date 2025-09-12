@@ -3,15 +3,10 @@ using namespace std;
 #define int long long
 
 void solve(){
-    int n;cin>>n;
-    map<int,int> m;
-    for(int i=0,x; i<n; i++){
-        cin>>x;
-        m[x]++;
-    }
-    int a=0,b=0;
-    for(auto &[x,y]:m) y>1?a++:b++;
-    cout<<a+(b+1)/2<<'\n';
+    int n,k;cin>>n>>k;
+    vector<int> a(n);
+    for(int &i:a) cin>>i;
+    
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);
