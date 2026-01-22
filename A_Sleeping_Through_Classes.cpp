@@ -3,15 +3,12 @@ using namespace std;
 #define int long long
 
 void solve(){
+    int n,k;cin>>n>>k;
     string s;cin>>s;
-    int ans=s.size();
-    set<char> st;
+    int t=0,ans=0;
     for(char c:s){
-        if(st.count(c)){
-            ans-=2;
-            st.clear();
-        }
-        else st.insert(c);
+        if(c=='1') t=k;
+        else ans+=--t<0;
     }
     cout<<ans<<'\n';
 }

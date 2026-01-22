@@ -3,15 +3,14 @@ using namespace std;
 #define int long long
 
 void solve(){
+    int r,x,d,n;cin>>r>>x>>d>>n;
     string s;cin>>s;
-    int ans=s.size();
-    set<char> st;
+    int ans=0;
     for(char c:s){
-        if(st.count(c)){
-            ans-=2;
-            st.clear();
+        if(c=='1' || r<x){
+            ans++;
+            r=max(0ll,r-d);
         }
-        else st.insert(c);
     }
     cout<<ans<<'\n';
 }

@@ -3,8 +3,8 @@ using namespace std;
 #define int long long
 
 void solve(){
-    int a,b,c,d;cin>>a>>b>>c>>d;
-    cout<<(min(a,c)<min(b,d)?"Flower\n":"Gellyfish\n");
+    int s,k,m;cin>>s>>k>>m;
+    
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);

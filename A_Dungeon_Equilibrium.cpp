@@ -3,15 +3,16 @@ using namespace std;
 #define int long long
 
 void solve(){
-    string s;cin>>s;
-    int ans=s.size();
-    set<char> st;
-    for(char c:s){
-        if(st.count(c)){
-            ans-=2;
-            st.clear();
-        }
-        else st.insert(c);
+    int n;cin>>n;
+    map<int,int> m;
+    for(int i=0,x; i<n; i++){
+        cin>>x;
+        m[x]++;
+    }
+    int ans=0;
+    for(auto &[x,y]:m){
+        if(y>=x) ans+=y-x;
+        else ans+=y;
     }
     cout<<ans<<'\n';
 }

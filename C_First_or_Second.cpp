@@ -3,17 +3,15 @@ using namespace std;
 #define int long long
 
 void solve(){
-    string s;cin>>s;
-    int ans=s.size();
-    set<char> st;
-    for(char c:s){
-        if(st.count(c)){
-            ans-=2;
-            st.clear();
-        }
-        else st.insert(c);
+    int n;cin>>n;
+    vector<int> a(n);
+    for(int& i:a) cin>>i;
+    int f=LLONG_MIN>>2,s=0;
+    for(int i=n-1; i>0; i--){
+        f=max(f+abs(a[i]),s);
+        s-=a[i];
     }
-    cout<<ans<<'\n';
+    cout<<max(a[0]+f,s)<<'\n';
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);

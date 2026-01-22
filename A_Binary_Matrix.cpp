@@ -3,16 +3,10 @@ using namespace std;
 #define int long long
 
 void solve(){
-    string s;cin>>s;
-    int ans=s.size();
-    set<char> st;
-    for(char c:s){
-        if(st.count(c)){
-            ans-=2;
-            st.clear();
-        }
-        else st.insert(c);
-    }
+    int n,m;cin>>n>>m;
+    vector<string> a(n);
+    for(auto& i:a) cin>>i;
+    
     cout<<ans<<'\n';
 }
 int32_t main(){

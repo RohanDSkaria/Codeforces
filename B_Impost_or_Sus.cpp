@@ -4,14 +4,14 @@ using namespace std;
 
 void solve(){
     string s;cin>>s;
-    int ans=s.size();
-    set<char> st;
-    for(char c:s){
-        if(st.count(c)){
-            ans-=2;
-            st.clear();
+    int n=s.size(),ans=(s[0]=='u')+(s[n-1]=='u');
+    s[0]=s[n-1]='s';
+    for(int i=1; i<n-1; i++){
+        if(s[i]=='s') continue;
+        if(s[i+1]=='u'){
+            s[i+1]='s';
+            ans++;
         }
-        else st.insert(c);
     }
     cout<<ans<<'\n';
 }

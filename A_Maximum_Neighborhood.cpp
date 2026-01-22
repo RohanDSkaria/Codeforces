@@ -3,8 +3,10 @@ using namespace std;
 #define int long long
 
 void solve(){
-    int a,b,c,d;cin>>a>>b>>c>>d;
-    cout<<(min(a,c)<min(b,d)?"Flower\n":"Gellyfish\n");
+    int n;cin>>n;
+    vector<int> a={1,9,29,56};
+    if(n<5) cout<<a[n-1]<<'\n';
+    else cout<<((n*(n-1)-1)*3)+(n*n-1)+(n*(n-2)-1)<<'\n';
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);

@@ -2,15 +2,16 @@
 using namespace std;
 #define int long long
 
-void solve(){
-    int a,b,c,d;cin>>a>>b>>c>>d;
-    cout<<(min(a,c)<min(b,d)?"Flower\n":"Gellyfish\n");
+bool solve(){
+    int n,a,b;cin>>n>>a;
+    while(--n) cin>>b;
+    return a+b;
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);
     int t=1;
     cin>>t;
-    while(t--) solve();
+    while(t--) cout<<(solve()?"Alice\n":"Bob\n");
 }
 /*
 

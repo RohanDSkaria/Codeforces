@@ -3,17 +3,16 @@ using namespace std;
 #define int long long
 
 void solve(){
-    string s;cin>>s;
-    int ans=s.size();
-    set<char> st;
-    for(char c:s){
-        if(st.count(c)){
-            ans-=2;
-            st.clear();
-        }
-        else st.insert(c);
+    int n;cin>>n;
+    vector<int> a(n);
+    for(int& i:a) cin>>i;
+    int ans=1,c=a[0];
+    for(int i=1; i<n; i++){
+        if(a[i]<c) continue;
+        ans++;
+        c=a[i];
     }
-    cout<<ans<<'\n';
+    cout<<n-ans<<'\n';
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);

@@ -3,17 +3,10 @@ using namespace std;
 #define int long long
 
 void solve(){
+    int n;cin>>n;
     string s;cin>>s;
-    int ans=s.size();
-    set<char> st;
-    for(char c:s){
-        if(st.count(c)){
-            ans-=2;
-            st.clear();
-        }
-        else st.insert(c);
-    }
-    cout<<ans<<'\n';
+    bool ya1=s.find("2025")==-1,ya2=s.find("2026")!=-1;
+    cout<<!(ya1 || ya2)<<'\n';
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);
