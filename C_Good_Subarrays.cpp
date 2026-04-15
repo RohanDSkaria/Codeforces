@@ -1,38 +1,24 @@
-// https://codeforces.com/contest/1398/problem/C
 #include <bits/stdc++.h>
 using namespace std;
-#define IOS ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
-#define endl '\n'
-// #define int long long 
-#define pb(a) push_back(a)
-#define v vector
-#define vi vector<int>
-#define bl cout<<endl;
-#define all(a) a.begin(),a.end()
-#define deb(x) cout<<#x<<" = "<<x<<endl;
-#define pii pair<int,int>
-#define yes {cout<<"YES"<<endl;return;}
-#define no {cout<<"NO"<<endl;return;}
-template<typename T>istream& operator>>(istream& is, v<T>& v){for(auto& x : v)is >> x;return is;}
-template<typename T>ostream& operator<<(ostream& os, v<T>& v){for(auto& x : v)os << x << ' ';return os;}
+#define int long long
 
 void solve(){
     int n;cin>>n;
-    long long ans=0;
-    string a;cin>>a;
-    vi b(n+1);
-    for(int i=0; i<n; i++) b[i+1]=b[i]+a[i]-'1';
-    map<int,int> cnt;
-    for(int i=0; i<=n; i++) ans+=cnt[b[i]]++;
-    cout<<ans<<endl;
+    string s;cin>>s;
+    map<int,int> m={{0,1}};
+    int ans=0,c=0;
+    for(int i=0; i<n; i++){
+        c+=s[i]-'1';
+        ans+=m[c]++;
+    }
+    cout<<ans<<'\n';
 }
 int32_t main(){
-    IOS int t=1;
+    ios::sync_with_stdio(0);cin.tie(nullptr);
+    int t=1;
     cin>>t;
     while(t--) solve();
 }
 /*
-1 1 0 1 1
-1 2 2 3 4
 
 */
