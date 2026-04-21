@@ -2,34 +2,24 @@
 using namespace std;
 #define int long long
 
-void query(int a, int b){
-    cout<<"? "<<a<<' '<<b<<endl;
-}
-void report(int a){
-    cout<<"! "<<a<<endl;
-}
 void solve(){
-    int n,k;cin>>n;
+    int n;cin>>n;
     n<<=1;
-    for(int i=5; i<=n; i+=2){
-        query(i,i+1);
-        cin>>k;
-        if(k==1){
+    auto report=[](int k){
+        cout<<"! "<<k<<endl;
+    };
+    auto query=[&](int i, int j){
+        cout<<"? "<<i<<' '<<j<<endl;
+        int a;cin>>a;
+        if(a==1){
             report(i);
-            return;
+            return true;
         }
-    }
-    for(int i=2; i<4; i++){
-        query(1,i);
-        cin>>k;
-        if(k==1){
-            report(i);
-            return;
-        }
-    }
-    query(2,3);
-    cin>>k;
-    report(k==1?2:4);
+        return false;
+    };
+    for(int i=3; i<=n; i+=2) if(query(i,i+1)) return;
+    if(query(1,3) || query(1,4)) return;
+    report(2);
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);
