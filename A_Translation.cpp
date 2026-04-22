@@ -3,8 +3,8 @@ using namespace std;
 #define int long long
 
 bool solve(){
-    int n;cin>>n;
-    return (n>2) && !(n&1);
+    string s,t;cin>>s>>t;
+    return s==string(t.rbegin(),t.rend());
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);

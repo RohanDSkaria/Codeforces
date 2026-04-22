@@ -2,15 +2,18 @@
 using namespace std;
 #define int long long
 
-bool solve(){
+void solve(){
     int n;cin>>n;
-    return (n>2) && !(n&1);
+    set<int> s;
+    while(cin>>n) s.insert(n);
+    if(s.size()>1) cout<<*next(s.begin())<<'\n';
+    else cout<<"NO\n";
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);
     int t=1;
     // cin>>t;
-    while(t--) cout<<(solve()?"YES\n":"NO\n");
+    while(t--) solve();
 }
 /*
 

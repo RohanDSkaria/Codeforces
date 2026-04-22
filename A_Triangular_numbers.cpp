@@ -4,7 +4,8 @@ using namespace std;
 
 bool solve(){
     int n;cin>>n;
-    return (n>2) && !(n&1);
+    int k=sqrt(2*n);
+    return k*(k+1)==2*n;
 }
 int32_t main(){
     ios::sync_with_stdio(0);cin.tie(nullptr);
