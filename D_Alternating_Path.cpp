@@ -4,34 +4,32 @@ using namespace std;
 
 void solve(){
     int n,m;cin>>n>>m;
-    if(m==0){
-        cout<<n<<'\n';
-        return;
-    }
     vector<vector<int>> adj(n);
-    vector<int> vis(n);
+    vector<pair<bool,bool>> vis(n);
     while(m--){
         int u,v;cin>>u>>v;
         adj[u-1].push_back(v-1);
         adj[v-1].push_back(u-1);
     }
-    auto dfs=[&](auto&& fn, int v, int p, int& a, int& b) -> void {
-        vis[v]=1;
+    int ans=0,a,b;
+    auto dfs=[&](auto&& fn, int v, int p, bool& ya) -> void {
+        vis[v]={1,(p==-1?0:vis[p].second^1)};
+        vis[v].second?b++:a++;
         for(int i:adj[v]){
             if(i==p) continue;
-            if(vis[i]){
-                if(cnt&1 && cnt>1) isEven=0;
+            if(vis[i].first){
+                if(vis[i].second==vis[v].second) ya=0;
                 continue;
             }
-            fn(fn,i,v,cnt+1,isEven);
+            fn(fn,i,v,ya);
         }
     };
-    int ans=0;
     for(int i=0; i<n; i++){
-        if(vis[i]) continue;
-        int a=0,b=0;
-        dfs(dfs,i,-1,a,b);
-        ans+=max(a,b);
+        if(vis[i].first) continue;
+        bool ya=1;
+        a=b=0;
+        dfs(dfs,i,-1,ya);
+        if(ya) ans+=max(a,b);
     }
     cout<<ans<<'\n';
 }
